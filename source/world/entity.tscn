@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://world/world_entity.gd" type="Script" id=1]
+
+[node name="entity" type="Node"]
+script = ExtResource( 1 )
+NOISE_RANGE = Vector2( -0.2, 0.2 )
+SCENE = null
+SPAWN_DISTANCE = null
+

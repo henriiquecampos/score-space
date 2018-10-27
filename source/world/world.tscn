@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://world/world.gd" type="Script" id=1]
+[ext_resource path="res://test_scenes/test_camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://world/world_entity.gd" type="Script" id=3]
+[ext_resource path="res://world/events/nebula.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world/entity.tscn" type="PackedScene" id=5]
+[ext_resource path="res://world/events/blackhole/blackhole.tscn" type="PackedScene" id=6]
+[ext_resource path="res://world/planets/planet.tscn" type="PackedScene" id=7]
+[ext_resource path="res://world/events/supernova/supernova.tscn" type="PackedScene" id=8]
+[ext_resource path="res://world/events/pulsar/pulsar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://world/events/comet/comet.tscn" type="PackedScene" id=10]
+
+[node name="world" type="Node2D"]
+script = ExtResource( 1 )
+WIDTH = 128
+HEIGHT = 128
+OFFSET = 128
+
+[node name="test_camera" parent="." instance=ExtResource( 2 )]
+
+[node name="entities" type="Node" parent="."]
+
+[node name="nebula" type="Node" parent="entities"]
+script = ExtResource( 3 )
+NOISE_RANGE = Vector2( -0.5, -0.15 )
+SCENE = ExtResource( 4 )
+SPAWN_DISTANCE = null
+
+[node name="blackhole" parent="entities" instance=ExtResource( 5 )]
+_sections_unfolded = [ "SCENE" ]
+NOISE_RANGE = Vector2( 0.45, 0.6 )
+SCENE = ExtResource( 6 )
+SPAWN_DISTANCE = 750.0
+
+[node name="planet" parent="entities" instance=ExtResource( 5 )]
+NOISE_RANGE = Vector2( 0.1, 0.4 )
+SCENE = ExtResource( 7 )
+SPAWN_DISTANCE = 1280.0
+
+[node name="supernova" parent="entities" instance=ExtResource( 5 )]
+NOISE_RANGE = Vector2( 0.5, 0.75 )
+SCENE = ExtResource( 8 )
+SPAWN_DISTANCE = 2500.0
+
+[node name="pulsar" parent="entities" instance=ExtResource( 5 )]
+NOISE_RANGE = Vector2( -0.75, -0.6 )
+SCENE = ExtResource( 9 )
+SPAWN_DISTANCE = 1280.0
+
+[node name="comet" parent="entities" instance=ExtResource( 5 )]
+NOISE_RANGE = Vector2( -0.3, 0 )
+SCENE = ExtResource( 10 )
+SPAWN_DISTANCE = 512.0
+
