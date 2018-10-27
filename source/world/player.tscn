@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://world/player.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[node name="player" type="KinematicBody2D"]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+motion/sync_to_physics = false
+script = ExtResource( 1 )
+max_speed = 300
+turn_speed = 200.0
+max_angular_velocity = 10.0
+dampling = 0.5
+acceleration = 100.0
+
+[node name="sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
