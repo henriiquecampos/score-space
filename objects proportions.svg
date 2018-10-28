@@ -14,8 +14,8 @@
    viewBox="0 0 338.66666 190.50001"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.2 2405546, 2018-03-11"
-   sodipodi:docname="objects proportions.svg">
+   sodipodi:docname="objects proportions.svg"
+   inkscape:version="0.92.2 2405546, 2018-03-11">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="392.75562"
-     inkscape:cy="340.83684"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="640.6765"
+     inkscape:cy="844.27185"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -38,7 +38,8 @@
      inkscape:window-height="1026"
      inkscape:window-x="0"
      inkscape:window-y="26"
-     inkscape:window-maximized="1">
+     inkscape:window-maximized="1"
+     inkscape:snap-global="false">
     <inkscape:grid
        type="xygrid"
        id="grid829"
@@ -112,13 +113,6 @@
        height="33.866669"
        x="67.733337"
        y="208.09999" />
-    <rect
-       y="246.2"
-       x="67.733337"
-       height="16.933334"
-       width="16.933334"
-       id="rect831"
-       style="opacity:1;fill:#2a7fff;fill-opacity:1;stroke:none;stroke-width:1.58044457;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
     <circle
        style="opacity:1;fill:#d35f8d;fill-opacity:1;stroke:none;stroke-width:8.46666718;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="path833"
@@ -147,7 +141,7 @@
        xml:space="preserve"
        id="flowRoot841"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:Montserrat;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       transform="matrix(0.26458334,0,0,0.26458334,0,106.49999)"><flowRegion
+       transform="matrix(0.26458334,0,0,0.26458334,3.5348318,128.58642)"><flowRegion
          id="flowRegion843"><rect
            id="rect845"
            width="272"
@@ -198,19 +192,22 @@
            height="48"
            x="624"
            y="80" /></flowRegion><flowPara
-         id="flowPara883">comet</flowPara></flowRoot>    <circle
-       style="opacity:1;fill:#ff7f2a;fill-opacity:1;stroke:none;stroke-width:8.4666605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
-       id="circle887"
-       cx="300.54568"
-       cy="212.33333"
-       r="16.933332" />
-    <rect
-       style="opacity:1;fill:#ff7f2a;fill-opacity:1;stroke:none;stroke-width:3.45650244;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
-       id="rect889"
-       width="8.4666748"
-       height="169.33333"
-       x="296.31235"
-       y="127.66666" />
+         id="flowPara883">comet</flowPara></flowRoot>    <g
+       id="g1576">
+      <circle
+         r="16.933332"
+         cy="212.33333"
+         cx="300.54568"
+         id="circle887"
+         style="opacity:1;fill:#ff7f2a;fill-opacity:1;stroke:none;stroke-width:8.4666605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <rect
+         y="127.66666"
+         x="296.31235"
+         height="169.33333"
+         width="8.4666748"
+         id="rect889"
+         style="opacity:1;fill:#ff7f2a;fill-opacity:1;stroke:none;stroke-width:3.45650244;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+    </g>
     <flowRoot
        xml:space="preserve"
        id="flowRoot897"
@@ -233,5 +230,23 @@
            height="48"
            width="272"
            id="rect899" /></flowRegion><flowPara
-         id="flowPara903">supernova</flowPara></flowRoot>  </g>
+         id="flowPara903">supernova</flowPara></flowRoot>    <rect
+       y="240.12936"
+       x="173.11809"
+       height="16.933334"
+       width="16.933334"
+       id="rect831"
+       style="opacity:1;fill:#2a7fff;fill-opacity:1;stroke:none;stroke-width:1.58044457;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1588"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:Montserrat;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458334,0,0,0.26458334,-75.904547,167.70471)"><flowRegion
+         id="flowRegion1590"><rect
+           id="rect1592"
+           width="1162.6855"
+           height="54.548244"
+           x="387.89859"
+           y="-453.79727" /></flowRegion><flowPara
+         id="flowPara1594">gather resources &gt; avoid obstacles &gt; deliver resources</flowPara></flowRoot>  </g>
 </svg>
