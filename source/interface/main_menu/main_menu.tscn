@@ -1,0 +1,252 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://interface/main_menu/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://interface/fonts/montserrat_eb_64.tres" type="DynamicFont" id=2]
+[ext_resource path="res://interface/fonts/montserrat_eb_32.tres" type="DynamicFont" id=3]
+[ext_resource path="res://juice/slash_effect.gd" type="Script" id=4]
+[ext_resource path="res://interface/fonts/montserrat_eb_16.tres" type="DynamicFont" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://juice/ui_transition/transition.tscn" type="PackedScene" id=7]
+
+[node name="main_menu" type="Control"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="v_box_container" type="VBoxContainer" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 50
+alignment = 0
+_sections_unfolded = [ "Margin", "custom_constants" ]
+
+[node name="title" type="Label" parent="v_box_container"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1180.0
+margin_bottom = 79.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 2 )
+text = "SPACE-X PLORATION"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="h_box_container" type="HBoxContainer" parent="v_box_container"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 129.0
+margin_right = 1180.0
+margin_bottom = 620.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="menu_options" type="VBoxContainer" parent="v_box_container/h_box_container"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 588.0
+margin_bottom = 491.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
+
+[node name="play_button" type="Button" parent="v_box_container/h_box_container/menu_options"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 154.0
+margin_bottom = 46.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "// _PLAY"
+flat = true
+align = 1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "custom_fonts" ]
+ADDITIONAL_SLASHES = 3
+
+[node name="leaderboard_button" type="Button" parent="v_box_container/h_box_container/menu_options"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 66.0
+margin_right = 329.0
+margin_bottom = 112.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "// _LEADERBOARD"
+flat = true
+align = 1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
+ADDITIONAL_SLASHES = 3
+
+[node name="credits_button" type="Button" parent="v_box_container/h_box_container/menu_options"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 132.0
+margin_right = 211.0
+margin_bottom = 178.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "// _CREDITS"
+flat = true
+align = 1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
+ADDITIONAL_SLASHES = 3
+
+[node name="quit_button" type="Button" parent="v_box_container/h_box_container/menu_options"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 198.0
+margin_right = 146.0
+margin_bottom = 244.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "// _QUIT"
+flat = true
+align = 1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
+ADDITIONAL_SLASHES = 3
+
+[node name="footer" type="Label" parent="v_box_container/h_box_container/menu_options"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 470.0
+margin_right = 588.0
+margin_bottom = 491.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 10
+custom_fonts/font = ExtResource( 5 )
+text = "Game by: Enumox & Pigdev for the 1st #scorejam"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts", "custom_fonts/font" ]
+
+[node name="space_ship" type="TextureRect" parent="v_box_container/h_box_container"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 854.0
+margin_top = 213.0
+margin_right = 918.0
+margin_bottom = 277.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource( 6 )
+stretch_mode = 0
+_sections_unfolded = [ "Anchor", "Focus", "Rect", "Size Flags" ]
+
+[node name="transition" parent="." instance=ExtResource( 7 )]
+
+[connection signal="pressed" from="v_box_container/h_box_container/menu_options/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="v_box_container/h_box_container/menu_options/leaderboard_button" to="." method="_on_leaderboard_button_pressed"]
+[connection signal="pressed" from="v_box_container/h_box_container/menu_options/credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="v_box_container/h_box_container/menu_options/quit_button" to="." method="_on_quit_button_pressed"]

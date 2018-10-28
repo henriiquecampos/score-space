@@ -1,4 +1,4 @@
-extends Control
+extends "res://interface/exitable_to_main_menu.gd"
 
 const SCORE_ENTRY = preload('res://interface/leader_board/score_entry.tscn')
 
@@ -13,6 +13,7 @@ func _get_highscores() -> void:
 	$HTTPRequest.request(GET_URL)
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+	$VBoxContainer/loading.queue_free()
 	var json = JSON.parse(body.get_string_from_utf8())
 	for document in json.result.documents:
 		var new_highscore = SCORE_ENTRY.instance()
