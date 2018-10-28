@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://world/player.gd"
+}, {
 "base": "Node",
 "class": "WorldEntity",
 "language": "GDScript",
 "path": "res://world/world_entity.gd"
 } ]
 _global_script_class_icons={
+"Player": "",
 "WorldEntity": ""
 }
 
@@ -50,6 +56,10 @@ break={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[node]
+
+name_casing=2
 
 [rendering]
 

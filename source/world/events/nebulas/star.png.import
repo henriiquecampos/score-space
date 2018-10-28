@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/nebula_00.png-970ba84b977d674789d5fa0b681bf1ba.stex"
+path="res://.import/star.png-ce3bf7b2e02d472d99d8bf8524aba206.stex"
 
 [deps]
 
-source_file="res://world/events/nebulas/nebula_00.png"
-dest_files=[ "res://.import/nebula_00.png-970ba84b977d674789d5fa0b681bf1ba.stex" ]
+source_file="res://world/events/nebulas/star.png"
+dest_files=[ "res://.import/star.png-ce3bf7b2e02d472d99d8bf8524aba206.stex" ]
 
 [params]
 
@@ -17,7 +17,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -27,5 +27,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

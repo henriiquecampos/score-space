@@ -1,57 +1,69 @@
-[gd_resource type="ParticlesMaterial" load_steps=3 format=2]
+[gd_resource type="ParticlesMaterial" load_steps=5 format=2]
 
-[sub_resource type="Curve" id=1]
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0.364286, 1 )
+colors = PoolColorArray( 0.458824, 0.494118, 1, 0.75502, 0.752941, 0.329412, 0.556863, 0.296431 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+_sections_unfolded = [ "gradient" ]
+
+[sub_resource type="Curve" id=3]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
-_data = [ Vector2( 0, 0.2272 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0777193, 0.0, 0, 0 ]
+_data = [ Vector2( 0.00359143, 0.3768 ), 0.0, 2.16717, 0, 0, Vector2( 1, 1 ), 0.0777193, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=2]
+[sub_resource type="CurveTexture" id=4]
 
 flags = 4
 width = 2048
-curve = SubResource( 1 )
+curve = SubResource( 3 )
 _sections_unfolded = [ "curve" ]
 
 [resource]
 
 render_priority = 0
 trail_divisor = 1
-emission_shape = 1
-emission_sphere_radius = 83.38
+emission_shape = 2
+emission_box_extents = Vector3( 64, 64, 1 )
 flag_align_y = false
 flag_rotate_y = false
 flag_disable_z = true
-spread = 105.0
+spread = 180.0
 flatness = 0.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 61.48
-initial_velocity_random = 0.8
+initial_velocity = 8.0
+initial_velocity_random = 1.0
 angular_velocity = 16.4
 angular_velocity_random = 1.0
-orbit_velocity = 0.2
+orbit_velocity = 0.0
 orbit_velocity_random = 1.0
-linear_accel = 0.0
+linear_accel = 15.0
 linear_accel_random = 0.0
-radial_accel = -68.97
+radial_accel = 0.0
 radial_accel_random = 0.0
 tangential_accel = 0.0
 tangential_accel_random = 0.0
-damping = 0.0
+damping = 12.64
 damping_random = 0.0
 angle = 0.0
 angle_random = 0.0
-scale = 3.0
+scale = 2.0
 scale_random = 1.0
-scale_curve = SubResource( 2 )
-color = Color( 0.6, 0.615686, 1, 0.627451 )
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.0
-hue_variation_random = 0.0
+hue_variation_random = 0.92
 anim_speed = 0.0
 anim_speed_random = 0.0
 anim_offset = 1.0
 anim_offset_random = 1.0
 anim_loop = false
-_sections_unfolded = [ "Color", "Emission Shape", "Hue Variation", "scale_curve" ]
+_sections_unfolded = [ "Color", "Damping", "Emission Shape", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Spread", "color_ramp", "scale_curve" ]
 
