@@ -32,3 +32,7 @@ func _physics_process(delta):
 	if move_and_collide(speed * (velocity.rotated(rotation)) * delta):
 		speed = 0
 	rotate(angular_velocity * delta)
+
+func damage(value : float) -> void:
+	pass
+

@@ -1,21 +1,57 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://world/events/comet/comet.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 640, 360 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 41.2311
+
 [node name="comet" type="Node2D"]
 script = ExtResource( 1 )
+SPEED = 500.0
+DAMAGE = null
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -1.09271
 texture = ExtResource( 2 )
 
-[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-rect = Rect2( -10, -10, 20, 20 )
-pause_animations = true
-freeze_bodies = true
-pause_particles = true
-pause_animated_sprites = true
-process_parent = false
-physics_process_parent = false
+[node name="area_2d" type="Area2D" parent="."]
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 
+[node name="collision_shape_2d" type="CollisionShape2D" parent="area_2d"]
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="damage_area" type="Area2D" parent="."]
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="damage_area"]
+shape = SubResource( 2 )
+
+[node name="visibility_notifier_2d" type="VisibilityNotifier2D" parent="."]
+rect = Rect2( -10, -10, 20, 20 )
+
+[connection signal="body_entered" from="area_2d" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="damage_area" to="." method="_on_damage_area_body_entered"]
+[connection signal="screen_exited" from="visibility_notifier_2d" to="." method="_on_visibility_notifier_2d_screen_exited"]

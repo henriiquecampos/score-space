@@ -1,5 +1,30 @@
 extends Node2D
 
-func _ready():
+export var SPEED : float = 1500.0
+export var DAMAGE : float = 25.0
+
+var move_direction : Vector2
+
+func _ready() -> void:
+	set_process(false)
 	print('COMET SPAWNED')
 
+func _process(delta : float) -> void:
+	position += move_direction * SPEED * delta
+
+func _on_area_2d_body_entered(body: PhysicsBody2D) -> void:
+	var player = body as Player
+	if player == null:
+		return
+	move_direction = (player.position - position).normalized()
+	set_process(true)
+
+func _on_damage_area_body_entered(body):
+	var player = body as Player
+	if player == null:
+		return
+	player.damage(DAMAGE)
+	queue_free()
+
+func _on_visibility_notifier_2d_screen_exited():
+	queue_free()

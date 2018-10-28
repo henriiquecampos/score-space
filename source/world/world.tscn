@@ -18,6 +18,7 @@ HEIGHT = 128
 OFFSET = 128
 
 [node name="entities" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="nebula" type="Node" parent="entities"]
 script = ExtResource( 2 )
