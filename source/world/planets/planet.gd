@@ -16,9 +16,15 @@ var player = null
 func _ready():
 	randomize()
 	set_process(false)
-	$progress_bar.max_value = resources
 	$sprite.texture = TEXTURES[rand_range(0, TEXTURES.size())]
 	resources = int(rand_range(min_resource, max_resource))
+	$progress_bar.max_value = resources
+	var ratio : float = float(resources)/float(max_resource)
+	$sprite.scale *= ratio
+	var new_shape = CircleShape2D.new()
+	new_shape.radius = 128.0
+	new_shape.radius *= ratio
+	$Area2D/CollisionShape2D.shape = new_shape
 
 func _process(delta):
 	if not $progress_bar.visible or player == null:
@@ -32,8 +38,8 @@ func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
 		player.prospecting = true
-		$progress_bar.show()
 		set_process(true)
+		$progress_bar.show()
 
 func _on_progress_bar_value_changed(value):
 	if value >= $progress_bar.max_value:
@@ -58,3 +64,13 @@ func instance_score(score):
 	var scene = load("res://juice/poplabel.tscn").instance()
 	scene.get_node("label").text = str(score)
 	add_child(scene)
+
+func _on_Area2D_body_exited(body):
+	if resources < 1:
+		return
+	if body.is_in_group("player"):
+		$progress_bar.hide()
+		set_process(false)
+		var remainder = int($progress_bar.max_value - $progress_bar.value)
+		resources = remainder
+		$progress_bar.max_value = remainder

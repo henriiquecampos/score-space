@@ -12,20 +12,20 @@ export (float) var prospection_speed : float = 40
 var angular_velocity : float = 0.0
 var velocity : Vector2 = Vector2(0, -1)
 var prospecting = false
+var current_speed = max_speed
 
 func _physics_process(delta):
-	if not prospecting:
-		if Input.is_action_pressed("thrust"):
-			speed += acceleration * delta
-			speed = min(speed, max_speed)
-		elif Input.is_action_pressed("break"):
-			speed -= acceleration * delta
-			speed = max(speed, 0)
-		if Input.is_action_pressed("rotate_left"):
-			angular_velocity -= (turn_speed * delta) * delta
-		elif Input.is_action_pressed("rotate_right"):
-			angular_velocity += (turn_speed * delta) * delta
-	
+	if Input.is_action_pressed("thrust"):
+		speed += acceleration * delta
+		speed = min(speed, max_speed)
+	elif Input.is_action_pressed("break"):
+		speed -= acceleration * delta
+		speed = max(speed, 0)
+	if Input.is_action_pressed("rotate_left"):
+		angular_velocity -= (turn_speed * delta) * delta
+	elif Input.is_action_pressed("rotate_right"):
+		angular_velocity += (turn_speed * delta) * delta
+
 	speed -= (speed * dampling) * delta
 	angular_velocity -= (angular_velocity * dampling) * delta
 	angular_velocity = min(angular_velocity, max_angular_velocity)
@@ -36,3 +36,8 @@ func _physics_process(delta):
 func damage(value : float) -> void:
 	pass
 
+func slow_down() -> void:
+	current_speed = max_speed * 0.5
+
+func speed_up() -> void:
+	current_speed = max_speed
