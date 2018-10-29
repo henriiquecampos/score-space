@@ -1,7 +1,7 @@
 extends Control
 
 func _on_play_button_pressed():
-	$transition.change_scene('res://world/world.tscn')
+	$transition.change_scene('res://game/game.tscn')
 
 func _on_leaderboard_button_pressed():
 	$transition.change_scene('res://interface/leader_board/leader_board.tscn')

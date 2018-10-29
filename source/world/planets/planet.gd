@@ -1,4 +1,5 @@
 extends Node2D
+class_name Planet
 
 const TEXTURES = [
 	preload("res://world/planets/blue.png"),
@@ -12,6 +13,8 @@ export (int) var min_resource = 100
 var resources : int = 0
 var animation_speed_range : Vector2 = Vector2(0.5, 2)
 var player = null
+
+signal resources_depleted(resources)
 
 func _ready():
 	randomize()
@@ -53,6 +56,7 @@ func _on_progress_bar_value_changed(value):
 			$tween.TRANS_ELASTIC, $tween.EASE_OUT)
 		$tween.start()
 		instance_score(resources)
+		emit_signal('resources_depleted', resources)
 		yield($tween, "tween_completed")
 		$tween.interpolate_property($sprite, "scale", $sprite.scale,
 			init_scale, 0.12,
