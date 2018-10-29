@@ -27,7 +27,9 @@ tracks/0/keys = {
 custom_solver_bias = 0.0
 radius = 127.996
 
-[node name="planet" type="Node2D"]
+[node name="planet" type="Node2D" groups=[
+"planets",
+]]
 script = ExtResource( 1 )
 max_resource = 500
 min_resource = 100

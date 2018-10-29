@@ -1,5 +1,7 @@
 extends Node2D
 
+signal world_generated
+
 const NEBULA = preload("res://world/events/nebula.tscn")
 
 onready var entities = $entities
@@ -36,3 +38,4 @@ func _generate_world() -> void:
 					add_child(new_entity)
 					entity.previous_positions.append(pos)
 					break
+	emit_signal('world_generated')

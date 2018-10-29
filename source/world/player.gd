@@ -1,5 +1,7 @@
-extends KinematicBody2D
 class_name Player
+extends KinematicBody2D
+
+signal health_changed(current_health)
 
 var speed = 0
 export (float) var max_speed : float= 300
@@ -8,11 +10,20 @@ export (float) var max_angular_velocity : float = 10.0
 export (float) var dampling : float = 0.5
 export (float) var acceleration : float = 100.0
 export (float) var prospection_speed : float = 40
+export var health : int = 100
 
 var angular_velocity : float = 0.0
 var velocity : Vector2 = Vector2(0, -1)
 var prospecting = false
 var current_speed = max_speed
+
+func _ready() -> void:
+	emit_signal('health_changed', health)
+	var stats = load('res://utils/stats_loader.gd').StatsLoader.new().get_stats()
+	current_speed = max_speed + max_speed / 2 * (stats.speed_level - 1)
+	health = health + health / 2 * (stats.health_level - 1)
+	acceleration = acceleration + acceleration * 0.25 * (stats.acceleration_level - 1)
+	prospection_speed = prospection_speed + prospection_speed / 2 * (stats.prospecting_level - 1)
 
 func _physics_process(delta):
 	if Input.is_action_pressed("thrust"):
@@ -34,7 +45,8 @@ func _physics_process(delta):
 	rotate(angular_velocity * delta)
 
 func damage(value : float) -> void:
-	pass
+	health = max(health - value, 0)
+	emit_signal('health_changed', health)
 
 func slow_down() -> void:
 	current_speed = max_speed * 0.5
