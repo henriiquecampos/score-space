@@ -7,7 +7,6 @@ var move_direction : Vector2
 
 func _ready() -> void:
 	set_process(false)
-	print('COMET SPAWNED')
 
 func _process(delta : float) -> void:
 	position += move_direction * SPEED * delta
