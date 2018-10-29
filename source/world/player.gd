@@ -45,8 +45,17 @@ func _physics_process(delta):
 	rotate(angular_velocity * delta)
 
 func damage(value : float) -> void:
+	if health == 0:
+		return
 	health = max(health - value, 0)
 	emit_signal('health_changed', health)
+	if health == 0:
+		set_physics_process(false)
+		set_process_input(false)
+		$collision_shape_2d.disabled = true
+		$death_timer.start()
+		yield($death_timer, 'timeout')
+		get_tree().change_scene('res://interface/game_over/game_over.tscn')
 
 func slow_down() -> void:
 	current_speed = max_speed * 0.5

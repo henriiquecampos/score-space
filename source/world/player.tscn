@@ -4,33 +4,33 @@
 [ext_resource path="res://world/events/nebulas/nebula_01.png" type="Texture" id=2]
 [ext_resource path="res://world/player.png" type="Texture" id=3]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 0.180328, 0.420765, 0.661202, 0.846995 )
 colors = PoolColorArray( 1, 0.980591, 0.953125, 1, 1, 0.760851, 0.433594, 1, 0.992188, 0.568279, 0.313934, 1, 1, 0.366516, 0.242188, 0.77046, 0.243137, 0.243137, 0.243137, 0.434157 )
 
-[sub_resource type="GradientTexture" id=3]
+[sub_resource type="GradientTexture" id=2]
 
 flags = 4
-gradient = SubResource( 2 )
+gradient = SubResource( 1 )
 width = 2048
 _sections_unfolded = [ "gradient" ]
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=3]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0, 0.2712 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.3504 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
+[sub_resource type="CurveTexture" id=4]
 
 flags = 4
 width = 2048
-curve = SubResource( 4 )
+curve = SubResource( 3 )
 _sections_unfolded = [ "curve" ]
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=5]
 
 render_priority = 0
 trail_divisor = 1
@@ -59,8 +59,8 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.0
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -70,7 +70,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Gravity", "Initial Velocity", "Spread", "color_ramp", "scale_curve" ]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=6]
 
 custom_solver_bias = 0.0
 radius = 32.0
@@ -92,6 +92,7 @@ max_angular_velocity = 20.0
 dampling = 0.5
 acceleration = 250.0
 prospection_speed = 50.0
+health = null
 
 [node name="particles_2d" type="Particles2D" parent="."]
 position = Vector2( 0, 20 )
@@ -109,12 +110,12 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 6 )
+process_material = SubResource( 5 )
 texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Textures", "process_material" ]
+_sections_unfolded = [ "Drawing", "Process Material", "Textures" ]
 
 [node name="sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -122,7 +123,7 @@ texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "shape" ]
 
 [node name="camera_2d" type="Camera2D" parent="."]
@@ -148,4 +149,10 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="death_timer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 2.5
+one_shot = true
+autostart = false
 
