@@ -1,28 +1,150 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://world/events/blackhole/blackhole.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://world/events/blackhole/blackhole.png" type="Texture" id=2]
+[ext_resource path="res://world/events/supernova/star.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0.513661, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+_sections_unfolded = [ "gradient" ]
+
+[sub_resource type="Curve" id=3]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.324 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
+_sections_unfolded = [ "curve" ]
+
+[sub_resource type="ParticlesMaterial" id=9]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 32.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 60.0
+initial_velocity_random = 0.0
+angular_velocity = 60.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.1
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 50.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Color", "Emission Shape", "Initial Velocity", "Orbit Velocity", "color_ramp", "scale_curve" ]
+
+[sub_resource type="CircleShape2D" id=6]
 
 custom_solver_bias = 0.0
-radius = 827.912
+radius = 256.0
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=7]
 
 custom_solver_bias = 0.0
-radius = 104.067
+radius = 64.0
+
+[sub_resource type="Animation" id=8]
+
+resource_name = "idle"
+length = 5.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0, 720.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
 
 [node name="blackhole" type="Node2D"]
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 MAX_DRAG_FORCE = null
 DAMAGE = null
 
 [node name="Sprite" type="Sprite" parent="."]
-rotation = 3.11775
-scale = Vector2( 2, 2 )
+rotation = 5.88286
+scale = Vector2( 1.99594, 1.99594 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+flip_h = true
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="particles_2d2" type="Particles2D" parent="."]
+emitting = true
+amount = 8
+lifetime = 4.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
+texture = ExtResource( 3 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "process_material" ]
 
 [node name="Area2D" type="Area2D" parent="."]
 input_pickable = true
@@ -34,7 +156,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "shape" ]
 
 [node name="damage_area" type="Area2D" parent="."]
@@ -47,13 +169,23 @@ audio_bus_override = false
 audio_bus_name = "Master"
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="damage_area"]
-shape = SubResource( 2 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "shape" ]
 
 [node name="timer" type="Timer" parent="."]
 process_mode = 1
 wait_time = 0.15
 one_shot = false
 autostart = false
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+root_node = NodePath("..")
+autoplay = "idle"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/idle = SubResource( 8 )
+blend_times = [  ]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

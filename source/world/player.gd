@@ -41,3 +41,12 @@ func slow_down() -> void:
 
 func speed_up() -> void:
 	current_speed = max_speed
+	
+func _input(event):
+	if event.is_action_pressed("thrust"):
+		$particles_2d.emitting = true
+	elif event.is_action_released("thrust"):
+		$particles_2d.emitting = false
+	elif event.is_action_pressed("break"):
+		$particles_2d.emitting = false
+	

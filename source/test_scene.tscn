@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://world/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/planets/planet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://world/events/blackhole/blackhole.tscn" type="PackedScene" id=3]
+[ext_resource path="res://world/events/nebula.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world/events/pulsar/pulsar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://world/events/supernova/supernova.tscn" type="PackedScene" id=6]
 
 [node name="test_scene" type="Node2D"]
+position = Vector2( 104, -240 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0.5, 0.5 )
@@ -12,17 +17,53 @@ position = Vector2( 0.5, 0.5 )
 position = Vector2( 311.5, -125.5 )
 
 [node name="planet2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 40, 256 )
+position = Vector2( -88, 512 )
 
 [node name="planet3" parent="." instance=ExtResource( 2 )]
-position = Vector2( -363, -38 )
+position = Vector2( -1160, -56 )
 
 [node name="planet4" parent="." instance=ExtResource( 2 )]
-position = Vector2( -61, -362 )
+position = Vector2( -192, -728 )
 
 [node name="planet5" parent="." instance=ExtResource( 2 )]
-position = Vector2( -455, -322 )
+position = Vector2( -712, -208 )
 
 [node name="planet6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 253, -419 )
+position = Vector2( 640, -648 )
+
+[node name="blackhole" parent="." instance=ExtResource( 3 )]
+position = Vector2( 408, 184 )
+
+[node name="blackhole2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -736, 608 )
+
+[node name="nebula" parent="." instance=ExtResource( 4 )]
+position = Vector2( -448, 64 )
+
+[node name="nebula2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -448, 192 )
+
+[node name="nebula3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -448, -64 )
+
+[node name="nebula4" parent="." instance=ExtResource( 4 )]
+position = Vector2( -64, 216 )
+
+[node name="nebula5" parent="." instance=ExtResource( 4 )]
+position = Vector2( -64, 344 )
+
+[node name="nebula6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 64, 344 )
+
+[node name="pulsar" parent="." instance=ExtResource( 5 )]
+position = Vector2( -56, -480 )
+
+[node name="supernova" parent="." instance=ExtResource( 6 )]
+position = Vector2( 872, 112 )
+
+[node name="supernova2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -296, 1000 )
+
+[node name="pulsar2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1072, -200 )
 

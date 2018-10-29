@@ -1,12 +1,79 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://world/player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://world/events/nebulas/nebula_01.png" type="Texture" id=2]
+[ext_resource path="res://world/player.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=2]
+
+offsets = PoolRealArray( 0, 0.180328, 0.420765, 0.661202, 0.846995 )
+colors = PoolColorArray( 1, 0.980591, 0.953125, 1, 1, 0.760851, 0.433594, 1, 0.992188, 0.568279, 0.313934, 1, 1, 0.366516, 0.242188, 0.77046, 0.243137, 0.243137, 0.243137, 0.434157 )
+
+[sub_resource type="GradientTexture" id=3]
+
+flags = 4
+gradient = SubResource( 2 )
+width = 2048
+_sections_unfolded = [ "gradient" ]
+
+[sub_resource type="Curve" id=4]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.2712 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.3504 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+
+flags = 4
+width = 2048
+curve = SubResource( 4 )
+_sections_unfolded = [ "curve" ]
+
+[sub_resource type="ParticlesMaterial" id=6]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 22.5
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 60.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Gravity", "Initial Velocity", "Spread", "color_ramp", "scale_curve" ]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 37.0742
+radius = 32.0
 
 [node name="player" type="KinematicBody2D" groups=[
 "player",
@@ -19,18 +86,44 @@ collision/safe_margin = 0.08
 motion/sync_to_physics = false
 script = ExtResource( 1 )
 _sections_unfolded = [ "Z Index" ]
-max_speed = 300
-turn_speed = 200.0
-max_angular_velocity = 10.0
+max_speed = 600.0
+turn_speed = 400.0
+max_angular_velocity = 20.0
 dampling = 0.5
-acceleration = 100.0
-prospection_speed = 40
+acceleration = 250.0
+prospection_speed = 50.0
+
+[node name="particles_2d" type="Particles2D" parent="."]
+position = Vector2( 0, 20 )
+rotation = 1.57079
+emitting = false
+amount = 64
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 6 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "process_material" ]
 
 [node name="sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+_sections_unfolded = [ "shape" ]
 
 [node name="camera_2d" type="Camera2D" parent="."]
 anchor_mode = 1
