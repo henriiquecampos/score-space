@@ -13,11 +13,6 @@ func _process(delta : float) -> void:
 	position += move_direction * SPEED * delta
 
 func _on_area_2d_body_entered(body: PhysicsBody2D) -> void:
-#	var player = body as Player
-#	if player == null:
-#		return
-#	move_direction = (player.position - position).normalized()
-#	set_process(true)
 	pass
 
 func _on_damage_area_body_entered(body):
@@ -35,5 +30,7 @@ func _on_visibility_notifier_2d2_viewport_entered(viewport):
 	var player = get_tree().get_nodes_in_group("player")[0] as Player
 	if player == null:
 		return
+	$timer.start()
+	yield($timer, "timeout")
 	move_direction = (player.position - position).normalized()
 	set_process(true)
