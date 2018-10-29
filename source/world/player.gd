@@ -1,5 +1,5 @@
-extends KinematicBody2D
 class_name Player
+extends KinematicBody2D
 
 signal health_changed(current_health)
 
@@ -19,6 +19,11 @@ var current_speed = max_speed
 
 func _ready() -> void:
 	emit_signal('health_changed', health)
+	var stats = load('res://utils/stats_loader.gd').StatsLoader.new().get_stats()
+	current_speed = max_speed + max_speed / 2 * (stats.speed_level - 1)
+	health = health + health / 2 * (stats.health_level - 1)
+	acceleration = acceleration + acceleration * 0.25 * (stats.acceleration_level - 1)
+	prospection_speed = prospection_speed + prospection_speed / 2 * (stats.prospecting_level - 1)
 
 func _physics_process(delta):
 	if Input.is_action_pressed("thrust"):

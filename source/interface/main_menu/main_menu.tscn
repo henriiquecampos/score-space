@@ -123,14 +123,41 @@ script = ExtResource( 4 )
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "custom_fonts" ]
 ADDITIONAL_SLASHES = 3
 
-[node name="leaderboard_button" type="Button" parent="v_box_container/h_box_container/menu_options"]
+[node name="upgrades_button" type="Button" parent="v_box_container/h_box_container/menu_options"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 66.0
-margin_right = 329.0
+margin_right = 255.0
 margin_bottom = 112.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "// _UPGRADES"
+flat = true
+align = 1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
+ADDITIONAL_SLASHES = 3
+
+[node name="leaderboard_button" type="Button" parent="v_box_container/h_box_container/menu_options"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 132.0
+margin_right = 329.0
+margin_bottom = 178.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -155,9 +182,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 132.0
+margin_top = 198.0
 margin_right = 211.0
-margin_bottom = 178.0
+margin_bottom = 244.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -182,9 +209,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 198.0
+margin_top = 264.0
 margin_right = 146.0
-margin_bottom = 244.0
+margin_bottom = 310.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -247,6 +274,7 @@ _sections_unfolded = [ "Anchor", "Focus", "Rect", "Size Flags" ]
 [node name="transition" parent="." instance=ExtResource( 7 )]
 
 [connection signal="pressed" from="v_box_container/h_box_container/menu_options/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="v_box_container/h_box_container/menu_options/upgrades_button" to="." method="_on_upgrades_button_pressed"]
 [connection signal="pressed" from="v_box_container/h_box_container/menu_options/leaderboard_button" to="." method="_on_leaderboard_button_pressed"]
 [connection signal="pressed" from="v_box_container/h_box_container/menu_options/credits_button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="v_box_container/h_box_container/menu_options/quit_button" to="." method="_on_quit_button_pressed"]

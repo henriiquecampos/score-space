@@ -11,3 +11,7 @@ func _on_credits_button_pressed():
 
 func _on_quit_button_pressed():
 	$transition.quit_game()
+
+
+func _on_upgrades_button_pressed():
+	$transition.change_scene('res://interface/upgrades/upgrades.tscn')
