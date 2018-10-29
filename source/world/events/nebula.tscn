@@ -206,7 +206,7 @@ _sections_unfolded = [ "Process Material", "Textures", "Time", "process_material
 [node name="timer" type="Timer" parent="."]
 process_mode = 1
 wait_time = 0.15
-one_shot = true
+one_shot = false
 autostart = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

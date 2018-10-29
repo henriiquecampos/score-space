@@ -54,3 +54,8 @@ SPAWN_DISTANCE = 512.0
 
 [node name="player" parent="." instance=ExtResource( 10 )]
 
+[node name="blackhole" parent="." instance=ExtResource( 5 )]
+position = Vector2( 849.755, -322.634 )
+MAX_DRAG_FORCE = null
+DAMAGE = null
+

@@ -11,6 +11,7 @@ export var OFFSET = 128
 var world_noise
 
 func _ready() -> void:
+	randomize()
 	world_noise = OpenSimplexNoise.new()
 	
 	world_noise.seed = randi()

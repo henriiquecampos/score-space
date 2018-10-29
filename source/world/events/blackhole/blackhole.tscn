@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://world/events/blackhole/blackhole.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -6,10 +6,17 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 288.931
+radius = 827.912
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 104.067
 
 [node name="blackhole" type="Node2D"]
 script = ExtResource( 1 )
+MAX_DRAG_FORCE = null
+DAMAGE = null
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 3.11775
@@ -28,4 +35,28 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+_sections_unfolded = [ "shape" ]
 
+[node name="damage_area" type="Area2D" parent="."]
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="damage_area"]
+shape = SubResource( 2 )
+
+[node name="timer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 0.15
+one_shot = false
+autostart = false
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="damage_area" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_exited" from="damage_area" to="." method="_on_damage_area_body_exited"]
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
