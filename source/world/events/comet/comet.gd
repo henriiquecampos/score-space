@@ -1,9 +1,11 @@
 extends Node2D
 
+export var MAX_HEALTH : int = 75
 export var SPEED : float = 600.0
 export var DAMAGE : float = 25.0
 
 var move_direction : Vector2
+var health = MAX_HEALTH
 
 func _ready() -> void:
 	$line_2d.points[1] -= Vector2(0, 0)
@@ -26,7 +28,6 @@ func _on_damage_area_body_entered(body):
 func _on_visibility_notifier_2d_screen_exited():
 	queue_free()
 
-
 func _on_visibility_notifier_2d2_viewport_entered(viewport):
 	var player = get_tree().get_nodes_in_group("player")[0] as Player
 	if player == null:
@@ -35,3 +36,9 @@ func _on_visibility_notifier_2d2_viewport_entered(viewport):
 	yield($timer, "timeout")
 	move_direction = (player.position - position).normalized()
 	set_process(true)
+
+func damage(value : int) -> void:
+	health = max(health - value, 0)
+	if health == 0:
+		queue_free()
+

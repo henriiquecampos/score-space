@@ -4,38 +4,38 @@
 [ext_resource path="res://world/events/nebulas/circle.png" type="Texture" id=2]
 [ext_resource path="res://world/events/comet/core.png" type="Texture" id=3]
 
-[sub_resource type="Gradient" id=7]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 0.57732 )
 colors = PoolColorArray( 0.266667, 0, 0.333333, 1, 0.266667, 0, 0.333333, 0 )
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=2]
 
 offsets = PoolRealArray( 0.437158, 1 )
 colors = PoolColorArray( 1, 0.4, 0.333333, 1, 1, 0.4, 0.333333, 0 )
 
-[sub_resource type="GradientTexture" id=9]
+[sub_resource type="GradientTexture" id=3]
 
 flags = 4
-gradient = SubResource( 8 )
+gradient = SubResource( 2 )
 width = 2048
 _sections_unfolded = [ "gradient" ]
 
-[sub_resource type="Curve" id=10]
+[sub_resource type="Curve" id=4]
 
 min_value = 0.0
 max_value = 1.0
 bake_resolution = 100
 _data = [ Vector2( 0, 0.1656 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.5616 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=11]
+[sub_resource type="CurveTexture" id=5]
 
 flags = 4
 width = 2048
-curve = SubResource( 10 )
+curve = SubResource( 4 )
 _sections_unfolded = [ "curve" ]
 
-[sub_resource type="ParticlesMaterial" id=12]
+[sub_resource type="ParticlesMaterial" id=6]
 
 render_priority = 0
 trail_divisor = 1
@@ -65,8 +65,8 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.0
-scale_curve = SubResource( 11 )
-color_ramp = SubResource( 9 )
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -76,13 +76,14 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Spread", "color_ramp", "scale_curve" ]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=7]
 
 custom_solver_bias = 0.0
 radius = 16.0
 
 [node name="comet" type="Node2D"]
 script = ExtResource( 1 )
+MAX_HEALTH = null
 SPEED = 500.0
 DAMAGE = null
 
@@ -90,7 +91,7 @@ DAMAGE = null
 points = PoolVector2Array( 0, 0, 0, 0 )
 width = 46.0
 default_color = Color( 0.4, 0.5, 1, 1 )
-gradient = SubResource( 7 )
+gradient = SubResource( 1 )
 texture_mode = 2
 begin_cap_mode = 2
 sharp_limit = 2.0
@@ -111,7 +112,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 12 )
+process_material = SubResource( 6 )
 texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
@@ -134,7 +135,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="damage_area"]
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "shape" ]
 
 [node name="visibility_notifier_2d" type="VisibilityNotifier2D" parent="."]
