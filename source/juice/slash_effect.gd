@@ -30,6 +30,7 @@ func _process(delta : float) -> void:
 				animating_exit = false
 
 func _on_mouse_entered() -> void:
+	$audio_stream_player_2d.play()
 	animating_enter = true
 	animating_exit = false
 

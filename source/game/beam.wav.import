@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/beam.wav-b309c7995aaa4b9e4b1f8533848a7e27.sample"
+
+[deps]
+
+source_file="res://game/beam.wav"
+dest_files=[ "res://.import/beam.wav-b309c7995aaa4b9e4b1f8533848a7e27.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

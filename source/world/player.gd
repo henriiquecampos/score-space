@@ -53,7 +53,9 @@ func damage(value : float) -> void:
 	camera.shake()
 	health = max(health - value, 0)
 	emit_signal('health_changed', health)
+	$hit_sound.play()
 	if health == 0:
+		$explosion_sound.play()
 		set_physics_process(false)
 		set_process_input(false)
 		$particles_2d.emitting = false

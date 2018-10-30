@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/resource_up.wav-b7420f4560c1aed6ea314c9bf972bcb9.sample"
+
+[deps]
+
+source_file="res://game/resource_up.wav"
+dest_files=[ "res://.import/resource_up.wav-b7420f4560c1aed6ea314c9bf972bcb9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

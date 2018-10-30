@@ -1,6 +1,6 @@
 extends Position2D
 
-export (int) var damage = 5
+export (int) var damage = 8
 
 func _ready():
 	$ray_cast_2d.add_exception(get_parent())
@@ -20,9 +20,11 @@ func _physics_process(delta):
 		$ray_cast_2d.cast_to = $beam_end.position
 		visible = false
 		get_parent().get_node("camera_2d/timer").stop()
+		$beam_sound.stop()
 		
 	$beam_end/particles_2d.emitting = $ray_cast_2d.is_colliding()
 	if $ray_cast_2d.is_colliding():
+		$beam_sound.play()
 		if $ray_cast_2d.get_collider().is_in_group("comet"):
 			$ray_cast_2d.get_collider().get_parent().damage(int(damage))
 		return
