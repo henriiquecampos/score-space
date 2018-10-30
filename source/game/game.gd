@@ -4,6 +4,7 @@ var score : int = 0
 var stats_loader
 
 func _ready() -> void:
+	score_tracker.score = 0
 	stats_loader = load('res://utils/stats_loader.gd').StatsLoader.new()
 	$GUI.update_score_label(score)
 
@@ -14,5 +15,6 @@ func _on_world_world_generated():
 
 func _on_planet_resources_depleted(resources : int) -> void:
 	score += resources
+	score_tracker.score = score
 	stats_loader.add_resources(resources)
 	$GUI.update_score_label(score)
