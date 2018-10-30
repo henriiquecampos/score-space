@@ -67,6 +67,7 @@ func _on_progress_bar_value_changed(value):
 func instance_score(score):
 	var scene = load("res://juice/poplabel.tscn").instance()
 	scene.get_node("label").text = str(score)
+	score_tracker.score += score
 	add_child(scene)
 
 func _on_Area2D_body_exited(body):

@@ -20,10 +20,7 @@ func set_duration(value):
 
 func set_shake(value):
 	shake = value
-	if shake:
-		set_process(true)
-	else:
-		set_process(false)
+	set_process(shake)
 
 func shake() -> void:
 	set_process(true)

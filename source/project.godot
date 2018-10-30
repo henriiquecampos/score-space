@@ -33,7 +33,6 @@ _global_script_class_icons={
 [application]
 
 config/name="Score Space"
-run/main_scene="res://interface/main_menu/main_menu.tscn"
 boot_splash/bg_color=Color( 0.160784, 0.168627, 0.372549, 1 )
 config/icon="res://icon.png"
 
@@ -43,10 +42,8 @@ score_tracker="*res://utils/static/score_tracker.gd"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
 
 [input]
 
@@ -72,6 +69,11 @@ break={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+ ]
+}
+shoot={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
 

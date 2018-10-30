@@ -4,6 +4,7 @@ export var MAX_HEALTH : int = 75
 export var SPEED : float = 600.0
 export var DAMAGE : float = 25.0
 
+var score = 250
 var move_direction : Vector2
 var health = MAX_HEALTH
 
@@ -39,6 +40,11 @@ func _on_visibility_notifier_2d2_viewport_entered(viewport):
 
 func damage(value : int) -> void:
 	health = max(health - value, 0)
-	if health == 0:
+	if health < 1:
+		var poplabel = load("res://juice/poplabel.tscn").instance()
+		score_tracker.score += score
+		poplabel.get_node("label").text = str(score)
+		poplabel.position = position
+		get_parent().add_child(poplabel)
 		queue_free()
 

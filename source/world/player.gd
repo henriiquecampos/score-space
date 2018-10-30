@@ -49,6 +49,7 @@ func _physics_process(delta):
 func damage(value : float) -> void:
 	if health == 0:
 		return
+	camera.duration = 0.8
 	camera.shake()
 	health = max(health - value, 0)
 	emit_signal('health_changed', health)

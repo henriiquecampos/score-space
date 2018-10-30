@@ -125,14 +125,18 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
-[node name="damage_area" type="Area2D" parent="."]
+[node name="damage_area" type="Area2D" parent="." groups=[
+"comet",
+]]
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+collision_layer = 33
 audio_bus_override = false
 audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="damage_area"]
 shape = SubResource( 7 )
@@ -143,7 +147,7 @@ rect = Rect2( -10, -10, 20, 20 )
 
 [node name="timer" type="Timer" parent="."]
 process_mode = 1
-wait_time = 1.0
+wait_time = 2.0
 one_shot = false
 autostart = false
 
