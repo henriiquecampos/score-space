@@ -2,8 +2,8 @@
 
 [sub_resource type="Gradient" id=1]
 
-offsets = PoolRealArray( 0.364286, 1 )
-colors = PoolColorArray( 0.458824, 0.494118, 1, 0.75502, 0.752941, 0.329412, 0.556863, 0.296431 )
+offsets = PoolRealArray( 0, 0.364286, 1 )
+colors = PoolColorArray( 1, 0.368627, 0.796078, 1, 0.458824, 0.974632, 1, 0.75502, 0.640808, 0.164062, 1, 0.296431 )
 
 [sub_resource type="GradientTexture" id=2]
 

@@ -1,15 +1,17 @@
 extends Node2D
 
-export var SPEED : float = 1500.0
+export var SPEED : float = 600.0
 export var DAMAGE : float = 25.0
 
 var move_direction : Vector2
 
 func _ready() -> void:
+	$line_2d.points[1] -= Vector2(0, 0)
 	set_process(false)
 
 func _process(delta : float) -> void:
 	position += move_direction * SPEED * delta
+	$line_2d.points[1] -= move_direction * SPEED * delta
 
 func _on_area_2d_body_entered(body: PhysicsBody2D) -> void:
 	pass

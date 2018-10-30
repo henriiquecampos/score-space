@@ -92,6 +92,7 @@ max_angular_velocity = 20.0
 dampling = 0.5
 acceleration = 250.0
 prospection_speed = 50.0
+health = null
 
 [node name="particles_2d" type="Particles2D" parent="."]
 position = Vector2( 0, 20 )

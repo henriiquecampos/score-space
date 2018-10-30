@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://world/events/nebulas/circle.png" type="Texture" id=1]
+
+[sub_resource type="Gradient" id=2]
+
+offsets = PoolRealArray( 0.278689, 0.398907, 0.677596, 1 )
+colors = PoolColorArray( 0.949692, 0.503536, 0.344681, 1, 0.54902, 0.913725, 1, 1, 0.456781, 0.190155, 0.523438, 1, 0.266667, 0, 0.333333, 0.188235 )
+
+[sub_resource type="GradientTexture" id=3]
+
+flags = 4
+gradient = SubResource( 2 )
+width = 2048
+_sections_unfolded = [ "gradient" ]
+
+[sub_resource type="Curve" id=5]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.3768 ), 0.0, 0.308, 0, 1, Vector2( 1, 0.6848 ), 0.308, 0.0, 1, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+
+flags = 4
+width = 2048
+curve = SubResource( 5 )
+_sections_unfolded = [ "Resource", "curve" ]
+
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 16.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 60.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 3 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Emission Shape", "Gravity", "Initial Velocity", "Scale", "Spread", "color_ramp", "scale_curve" ]
+
+[node name="particles_2d" type="Particles2D"]
+show_behind_parent = true
+emitting = true
+amount = 16
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 4 )
+texture = ExtResource( 1 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Visibility", "process_material" ]
+
