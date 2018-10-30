@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://world/player.gd" type="Script" id=1]
 [ext_resource path="res://world/events/nebulas/nebula_01.png" type="Texture" id=2]
 [ext_resource path="res://world/player.png" type="Texture" id=3]
+[ext_resource path="res://world/camera_shake.gd" type="Script" id=4]
 
 [sub_resource type="Gradient" id=1]
 
@@ -149,6 +150,17 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
+script = ExtResource( 4 )
+amplitude = 6.0
+duration = 0.8
+DAMP_EASING = 1.0
+shake = false
+
+[node name="timer" type="Timer" parent="camera_2d"]
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = true
 
 [node name="death_timer" type="Timer" parent="."]
 process_mode = 1
@@ -156,3 +168,4 @@ wait_time = 2.5
 one_shot = true
 autostart = false
 
+[connection signal="timeout" from="camera_2d/timer" to="camera_2d" method="_on_timer_timeout"]

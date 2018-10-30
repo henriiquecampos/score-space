@@ -29,7 +29,7 @@ func _generate_world() -> void:
 			sample = world_noise.get_noise_2d(float(x - WIDTH / 2), float(y - HEIGHT / 2))
 			for entity in entities.get_children():
 				if sample >= entity.NOISE_RANGE.x and sample <= entity.NOISE_RANGE.y:
-					var pos = Vector2((x - WIDTH) * OFFSET, (y - HEIGHT) * OFFSET)
+					var pos = Vector2((x - WIDTH / 2) * OFFSET, (y - HEIGHT / 2) * OFFSET)
 					if entity.SPAWN_DISTANCE > 0:
 						if not entity.can_spawn_entity(pos):
 							continue

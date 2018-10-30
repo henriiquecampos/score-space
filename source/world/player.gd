@@ -3,6 +3,8 @@ extends KinematicBody2D
 
 signal health_changed(current_health)
 
+onready var camera = $camera_2d
+
 var speed = 0
 export (float) var max_speed : float= 300
 export (float) var turn_speed : float = 200.0
@@ -47,11 +49,13 @@ func _physics_process(delta):
 func damage(value : float) -> void:
 	if health == 0:
 		return
+	camera.shake()
 	health = max(health - value, 0)
 	emit_signal('health_changed', health)
 	if health == 0:
 		set_physics_process(false)
 		set_process_input(false)
+		$particles_2d.emitting = false
 		$collision_shape_2d.disabled = true
 		$death_timer.start()
 		yield($death_timer, 'timeout')

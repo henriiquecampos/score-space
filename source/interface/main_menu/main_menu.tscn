@@ -5,7 +5,7 @@
 [ext_resource path="res://interface/fonts/montserrat_eb_32.tres" type="DynamicFont" id=3]
 [ext_resource path="res://juice/slash_effect.gd" type="Script" id=4]
 [ext_resource path="res://interface/fonts/montserrat_eb_16.tres" type="DynamicFont" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://world/player.png" type="Texture" id=6]
 [ext_resource path="res://juice/ui_transition/transition.tscn" type="PackedScene" id=7]
 
 [node name="main_menu" type="Control"]
@@ -257,10 +257,11 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 854.0
-margin_top = 213.0
-margin_right = 918.0
-margin_bottom = 277.0
+margin_left = 822.0
+margin_top = 181.0
+margin_right = 950.0
+margin_bottom = 309.0
+rect_rotation = -27.34
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
